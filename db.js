@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+require('dotenv').config()
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
-mongoose.connect("mongodb+srv://ayushshukla9170:brpniATOhAb5t0sW@cluster0.ypflw.mongodb.net/paytm")
+mongoose.connect(process.env.mongo_url)
 
 const user = new Schema({
  username:{type:String, required: true},
