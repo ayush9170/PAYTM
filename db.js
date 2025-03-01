@@ -3,7 +3,12 @@ require('dotenv').config()
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
-mongoose.connect(process.env.mongo_url)
+
+
+mongoose.connect(process.env.mongo_url).then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("Failed to connect to MongoDB", err));
+
+
 
 const user = new Schema({
  username:{type:String, required: true},
